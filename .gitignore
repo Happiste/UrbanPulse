@@ -1,9 +1,10 @@
 # Ignore les fichiers/dossiers spécifiques
 .vscode/
 venv/
+dataset/
 __pycache__/
 *.pyc
 *.ipynb_checkpoints
 *.csv
 *.html
-*.zip
+
