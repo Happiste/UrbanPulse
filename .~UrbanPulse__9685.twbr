@@ -6,7 +6,6 @@
     <AccessibleZoneTabOrder />
     <AnimationOnByDefault />
     <AutoCreateAndUpdateDSDPhoneLayouts />
-    <DashboardGridOverlay />
     <MapboxVectorStylesAndLayers />
     <MarkAnimation />
     <ObjectModelEncapsulateLegacy />
@@ -31168,14 +31167,19 @@
             <column-instance column='[Hourly Flow]' derivation='Sum' name='[sum:Hourly Flow:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='quantitative' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Counting DateTime:qk]' filter-group='6' included-values='in-range'>
-            <min>#2024-12-01 02:00:00#</min>
-            <max>#2024-12-02 07:00:00#</max>
+            <min>#2024-12-01 08:00:00#</min>
+            <max>#2024-12-05 23:00:00#</max>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]' filter-group='4'>
-            <groupfilter function='level-members' level='[none:Traffic State:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Bloqué&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Fluide&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Pré-saturé&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Saturé&quot;' />
+            </groupfilter>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:day_of_week:nk]' filter-group='3'>
-            <groupfilter function='member' level='[none:day_of_week:nk]' member='&quot;Wednesday&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='level-members' level='[none:day_of_week:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]</column>
@@ -31249,11 +31253,16 @@
             </column-instance>
           </datasource-dependencies>
           <filter class='quantitative' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Counting DateTime:qk]' filter-group='6' included-values='in-range'>
-            <min>#2024-12-01 02:00:00#</min>
-            <max>#2024-12-02 07:00:00#</max>
+            <min>#2024-12-01 08:00:00#</min>
+            <max>#2024-12-05 23:00:00#</max>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]' filter-group='4'>
-            <groupfilter function='level-members' level='[none:Traffic State:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Bloqué&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Fluide&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Pré-saturé&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Saturé&quot;' />
+            </groupfilter>
           </filter>
           <slices>
             <column>[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]</column>
@@ -31322,14 +31331,19 @@
             <column-instance column='[Traffic State]' derivation='None' name='[none:Traffic State:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <filter class='quantitative' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Counting DateTime:qk]' filter-group='6' included-values='in-range'>
-            <min>#2024-12-01 02:00:00#</min>
-            <max>#2024-12-02 07:00:00#</max>
+            <min>#2024-12-01 08:00:00#</min>
+            <max>#2024-12-05 23:00:00#</max>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Label:nk]' filter-group='7'>
             <groupfilter function='level-members' level='[none:Label:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]' filter-group='4'>
-            <groupfilter function='level-members' level='[none:Traffic State:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Bloqué&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Fluide&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Pré-saturé&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Saturé&quot;' />
+            </groupfilter>
           </filter>
           <slices>
             <column>[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]</column>
@@ -31408,17 +31422,22 @@
             <column-instance column='[Occupancy Rate]' derivation='Sum' name='[sum:Occupancy Rate:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='quantitative' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Counting DateTime:qk]' filter-group='6' included-values='in-range'>
-            <min>#2024-12-01 02:00:00#</min>
-            <max>#2024-12-02 07:00:00#</max>
+            <min>#2024-12-01 08:00:00#</min>
+            <max>#2024-12-05 23:00:00#</max>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Label:nk]' filter-group='7'>
             <groupfilter function='level-members' level='[none:Label:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]' filter-group='4'>
-            <groupfilter function='level-members' level='[none:Traffic State:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Bloqué&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Fluide&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Pré-saturé&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Saturé&quot;' />
+            </groupfilter>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:day_of_week:nk]' filter-group='3'>
-            <groupfilter function='member' level='[none:day_of_week:nk]' member='&quot;Wednesday&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='level-members' level='[none:day_of_week:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Counting DateTime:qk]</column>
@@ -31504,17 +31523,22 @@
             <column-instance column='[Occupancy Rate]' derivation='Sum' name='[sum:Occupancy Rate:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='quantitative' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Counting DateTime:qk]' filter-group='6' included-values='in-range'>
-            <min>#2024-12-01 02:00:00#</min>
-            <max>#2024-12-02 07:00:00#</max>
+            <min>#2024-12-01 08:00:00#</min>
+            <max>#2024-12-05 23:00:00#</max>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Label:nk]' filter-group='7'>
             <groupfilter function='level-members' level='[none:Label:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]' filter-group='4'>
-            <groupfilter function='level-members' level='[none:Traffic State:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Bloqué&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Fluide&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Pré-saturé&quot;' />
+              <groupfilter function='member' level='[none:Traffic State:nk]' member='&quot;Saturé&quot;' />
+            </groupfilter>
           </filter>
           <filter class='categorical' column='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:day_of_week:nk]' filter-group='3'>
-            <groupfilter function='member' level='[none:day_of_week:nk]' member='&quot;Wednesday&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='level-members' level='[none:day_of_week:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[none:Traffic State:nk]</column>
@@ -31525,10 +31549,6 @@
           <aggregation value='false' />
         </view>
         <style>
-          <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[avg:Longitude:qk]' field-type='quantitative' max='271728.10179494199' min='247935.47103831259' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1t4x5yn0gvkfxx17bvx3i1tndcp0].[avg:Latitude:qk]' field-type='quantitative' max='6256349.861728414' min='6240670.2661167057' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
-          </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
           </style-rule>
@@ -31958,7 +31978,6 @@
         </viewpoint>
       </viewpoints>
       <active id='16' />
-      <grid grid-overlay-mode='on' />
       <simple-id uuid='{748A1850-369A-407B-BF8B-888F3A7AC169}' />
     </window>
   </windows>
